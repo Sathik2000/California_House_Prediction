@@ -13,7 +13,7 @@ scaler=pickle.load(open('scaling.pkl','rb'))
 def home():
     return render_template('home.html')
 
-#2nd page-4
+#2nd page-4_Input(x)
 @app.route('/predict_api',methods=['POST'])
 def predict_api():
     data=request.json['data']
@@ -24,6 +24,15 @@ def predict_api():
     print(output[0])
     return jsonify(output[0])
 
+#3rd page-5(Prediction_Y)
+@app.route('/predict',methods=['POST'])
+def predict():
+    data=[float (x) for x in request.form.values()]
+    final_input=scaler.transform(np.array(data).reshape(1,-1))
+    print(final_input)
+    output=reg_model.predict(final_input)[0]
+    return render_template("home.html",prediction_text="The House Price is{}".format(output))
+           
 #run-5
 if __name__ == "__main__":
     app.run(debug=True)
