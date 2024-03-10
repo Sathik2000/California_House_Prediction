@@ -1,5 +1,10 @@
 # California_House_Prediction
 
+<<<<<<< HEAD
+=======
+### Boston House Pricing Prediction
+
+>>>>>>> 05d39be1581535b3008b94c6aea70c65f1ab1bec
 ### Software And Tools Requirements
 
 1. [Github Account](https://github.com)
